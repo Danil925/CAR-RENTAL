@@ -496,45 +496,49 @@
 
               <!-- Vehicle 1 data start -->
               <div class="vehicle-data" id="vehicle-1">
-                <div class="col-md-6 wow fadeIn" data-wow-offset="100">
-                  <div class="vehicle-img">
-                    <img class="img-responsive" src="../img/vehicle1.jpg" alt="Vehicle">
-                  </div>
-                </div>
-                <div class="col-md-3 wow fadeInUp" data-wow-offset="200">
-                  <div class="vehicle-price">$ 37.40 <span class="info">rent per day</span></div>
-                  <table class="table vehicle-features">
-                    <tr>
-                      <td>Model</td>
-                      <td>Limousine</td>
-                    </tr>
-                    <tr>
-                      <td>Doors</td>
-                      <td>4</td>
-                    </tr>
-                    <tr>
-                      <td>Seats</td>
-                      <td>5</td>
-                    </tr>
-                    <tr>
-                      <td>Luggage</td>
-                      <td>2 Suitcases / 2 Bags</td>
-                    </tr>
-                    <tr>
-                      <td>Transmission</td>
-                      <td>Automatic</td>
-                    </tr>
-                    <tr>
-                      <td>Air conditioning</td>
-                      <td>Yes</td>
-                    </tr>
-                    <tr>
-                      <td>Minimum age</td>
-                      <td>25 years</td>
-                    </tr>
-                  </table>
-                  <a href="#teaser" class="reserve-button scroll-to"><span class="glyphicon glyphicon-calendar"></span> Reserve now</a>
-                </div>
+                  <?php foreach ($items as $item): ?>
+                      <div class="col-md-6 wow fadeIn" data-wow-offset="100">
+                          <div class="vehicle-img">
+                              <img class="img-responsive" src="<?=$item['image']?>" alt="Vehicle">
+                          </div>
+                      </div>
+                      <div class="col-md-3 wow fadeInUp" data-wow-offset="200">
+                          <div class="vehicle-price">$<?= $item['price'] ?><span class="info">rent per day</span>
+                          </div>
+                          <table class="table vehicle-features">
+                              <tr>
+                                  <td>Model</td>
+                                  <td><?=$item['model']?></td>
+                              </tr>
+                              <tr>
+                                  <td>Doors</td>
+                                  <td><?=$item['doors']?></td>
+                              </tr>
+                              <tr>
+                                  <td>Seats</td>
+                                  <td><?=$item['seats']?></td>
+                              </tr>
+                              <tr>
+                                  <td>Luggage</td>
+                                  <td><?=$item['luggage']?></td>
+                              </tr>
+                              <tr>
+                                  <td>Transmission</td>
+                                  <td><?=$item['transmission']?></td>
+                              </tr>
+                              <tr>
+                                  <td>Air conditioning</td>
+                                  <td><?=$item['conditiong']?></td>
+                              </tr>
+                              <tr>
+                                  <td>Minimum age</td>
+                                  <td><?=$item['age']?></td>
+                              </tr>
+                          </table>
+                          <a href="#teaser" class="reserve-button scroll-to"><span class="glyphicon glyphicon-calendar"></span> Reserve now</a>
+                      </div>
+                  <?php endforeach;
+                  ?>
               </div>
               <!-- Vehicle 1 data end -->
 
