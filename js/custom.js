@@ -324,7 +324,7 @@ $( "#contact-form" ).submit(function() {
 
   $.ajax({
     type: "POST",
-    url: "php/index.php",
+    url: "/feedback",
     data: $("#contact-form").serialize(),
     dataType: "json",
       complete: ({status}) => {
