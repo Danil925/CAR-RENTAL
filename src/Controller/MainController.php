@@ -9,6 +9,28 @@ use ORM;
 
 class MainController
 {
+    public function index(View $view)
+    {
+        return $view->make('index');
+    }
+
+//    public function list(ServerRequest $request ,View $view)
+//    {
+//        $items = ORM::for_table('cars')->find_many();
+////        find_one($request->getQueryParams()['id'])
+//        return $view->make('index',[ 'items' => $items]);
+//    }
+    public function list(ServerRequest $request, View $view)
+    {
+        $id = $request->getQueryParams()['id'];
+        $items = ORM::for_table('cars')->find_one($id);
+
+        if (!$items) {
+            return [];
+        }
+
+        return $view->make('index', ['items' => [$items]]);
+    }
     public function create(ServerRequest $request):RedirectResponse
     {
         $car_name = $request->getParsedBody()['car_id'];
